@@ -1,21 +1,37 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class YeetMan {
 
+    private static String[] list = new String[100];
+    private static int count = 0;
+    private static final String LINE = "____________________________________________________________";
+
     private static void handleIO() {
-        String line = "____________________________________________________________";
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        if (!input.equals("bye")) {
-            while (!input.equals("bye")) {
-                String output = String.format("%s\n %s\n %s\n", line, input, line);
+        String input = "";
+        while (!input.equals("bye")) {
+            input = scanner.nextLine();
+            if (input.equals("list")) {
+                outputDisplay(list);
+            } else if (input.equals("bye")) {
+                System.out.println(LINE + "\nBYE! 4 LETTERS, 1 WORD. UH UH, YEET!\n" + LINE);
+                break;
+            } else {
+                list[count] = input;
+                count++;
+                String output = String.format("%s\n added: %s\n %s\n", LINE, input, LINE);
                 System.out.println(output);
-                input = scanner.nextLine();
             }
-            System.out.println(line + "\nbye\n" + line);
-        } else {
-            System.out.println(line + "\nbye\n" + line);
         }
+    }
+
+    private static void outputDisplay(String[] list) {
+        String outputList = "";
+        for (int i = 0; i < count ; i++) {
+            outputList += String.format("%d. %s\n", i + 1, list[i]);
+        }
+        System.out.printf("%s\n %s %s\n", LINE, outputList, LINE);
     }
 
     public static void main(String[] args) {
