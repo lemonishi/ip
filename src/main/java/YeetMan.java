@@ -27,10 +27,42 @@ public class YeetMan {
                 list[index].markAsUndone();
                 System.out.printf("%s\nI've marked this task as not done yet: \n%s\n%s\n", LINE, list[index], LINE);
             } else {
-                list[count] = new Task(input);
-                count++;
-                String output = String.format("%s\n added: %s\n %s\n", LINE, input, LINE);
-                System.out.println(output);
+                String details = input.split(" ", 2)[1].trim();
+                switch (command) {
+                    case "todo":
+                        ToDo todo = new ToDo(details);
+                        list[count] = todo;
+                        count++;
+                        System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
+                                LINE, todo, count, LINE);
+                        break;
+                    case "deadline": {
+                        String name = details.split("/by")[0].trim();
+                        String dueDate = details.split("/by")[1].trim();
+                        Deadline deadline = new Deadline(name, dueDate);
+                        list[count] = deadline;
+                        count++;
+                        System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
+                                LINE, deadline, count, LINE);
+                        break;
+                    }
+                    case "event": {
+                        String name = details.split("/from")[0].trim();
+                        String startDate = details.split("/from|/to")[1].trim();
+                        String endDate = details.split("/to")[1].trim();
+                        Event event = new Event(name ,startDate, endDate);
+                        list[count] = event;
+                        count++;
+                        System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
+                                LINE, event, count, LINE);
+                        break;
+                    }
+                    default:
+                        list[count] = new Task(input);
+                        count++;
+                        String output = String.format("%s\n added: %s\n %s\n", LINE, input, LINE);
+                        System.out.println(output);
+                }
             }
         }
     }
