@@ -1,6 +1,4 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class YeetMan {
@@ -47,6 +45,19 @@ public class YeetMan {
                 LINE, event, count, LINE);
     }
 
+    private static void handleDelete(String details) throws YeetManException {
+        try {
+            int index = Integer.parseInt(details) - 1;
+            Task task = list.get(index);
+            list.remove(index);
+            count--;
+            System.out.printf("%s\nI've removed this task:\n\t%s\nNow you have %d tasks in your list.\n%s\n",
+                    LINE, task, count, LINE);
+        } catch (Exception e) {
+            throw new YeetManException("Enter the task number you want to delete Uce!");
+        }
+    }
+
     private static void handleIO() {
         Scanner scanner = new Scanner(System.in);
         String input = "";
@@ -83,6 +94,9 @@ public class YeetMan {
                         break;
                     case "event":
                         handleEvent(details);
+                        break;
+                    case "delete":
+                        handleDelete(details);
                         break;
                     default:
                         throw new YeetManException("You good Uce? This makes no sense!");
