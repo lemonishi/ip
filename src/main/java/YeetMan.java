@@ -73,14 +73,12 @@ public class YeetMan {
         for (int i = 0; i < count ; i++) {
             outputList += String.format("%d. %s\n", i + 1, list[i]);
         }
-        System.out.printf("%s\n %s\n %s %s\n", LINE, header, outputList, LINE);
+        System.out.printf("%s\n%s\n%s%s\n", LINE, header, outputList, LINE);
     }
 
     public static void main(String[] args) {
-        String greeting = "____________________________________________________________\n" +
-                "Hello! I'm YeetMan. It's just me Uce!\n" +
-                " What can I do for you?\n" +
-                "____________________________________________________________";
+        String greeting = String.format("%s\nHello! I'm YeetMan. It's just me Uce!\n" +
+                "What can I do for you?\n%s\n", LINE, LINE);
         System.out.println(greeting);
         handleIO();
     }
