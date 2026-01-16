@@ -1,8 +1,11 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class YeetMan {
 
-    private static Task[] list = new Task[100];
+    private static ArrayList<Task> list = new ArrayList<>();
     private static int count = 0;
     private static final String LINE = "____________________________________________________________";
 
@@ -11,7 +14,7 @@ public class YeetMan {
             throw new YeetManException("The description of a todo cannot be empty Uce!");
         }
         ToDo todo = new ToDo(details);
-        list[count] = todo;
+        list.add(todo);
         count++;
         System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
                 LINE, todo, count, LINE);
@@ -24,21 +27,21 @@ public class YeetMan {
         String name = details.split("/by")[0].trim();
         String dueDate = details.split("/by")[1].trim();
         Deadline deadline = new Deadline(name, dueDate);
-        list[count] = deadline;
+        list.add(deadline);
         count++;
         System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
                 LINE, deadline, count, LINE);
     }
 
     private static void handleEvent(String details) throws YeetManException {
-        if (details.split("/from").length == 1) {
+        if (details.split("/from").length == 1 || details.split("/to").length == 1) {
             throw new YeetManException("Events need to have a start and end date Uce!");
         }
         String name = details.split("/from")[0].trim();
         String startDate = details.split("/from|/to")[1].trim();
         String endDate = details.split("/to")[1].trim();
         Event event = new Event(name ,startDate, endDate);
-        list[count] = event;
+        list.add(event);
         count++;
         System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
                 LINE, event, count, LINE);
@@ -61,14 +64,14 @@ public class YeetMan {
                         return;
                     case "mark": {
                         int index = Integer.parseInt(input.split(" ")[1]) - 1;
-                        list[index].markAsDone();
-                        System.out.printf("%s\nGreat job Uce! I've marked this task as done: \n%s\n%s\n", LINE, list[index], LINE);
+                        list.get(index).markAsDone();
+                        System.out.printf("%s\nGreat job Uce! I've marked this task as done: \n%s\n%s\n", LINE, list.get(index), LINE);
                         break;
                     }
                     case "unmark": {
                         int index = Integer.parseInt(input.split(" ")[1]) - 1;
-                        list[index].markAsUndone();
-                        System.out.printf("%s\nI've marked this task as not done yet: \n%s\n%s\n", LINE, list[index], LINE);
+                        list.get(index).markAsUndone();
+                        System.out.printf("%s\nI've marked this task as not done yet: \n%s\n%s\n", LINE, list.get(index), LINE);
                         break;
                     }
                     case "todo" : {
@@ -90,11 +93,11 @@ public class YeetMan {
         }
     }
 
-    private static void outputDisplay(Task[] list) {
+    private static void outputDisplay(ArrayList<Task> list) {
         String outputList = "";
         String header = "Here are the tasks in your list, Uce! :";
-        for (int i = 0; i < count ; i++) {
-            outputList += String.format("%d. %s\n", i + 1, list[i]);
+        for (Task task : list) {
+            outputList += String.format("%d. %s\n", list.indexOf(task) + 1, task);
         }
         System.out.printf("%s\n%s\n%s%s\n", LINE, header, outputList, LINE);
     }
