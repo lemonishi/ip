@@ -1,48 +1,67 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.File;
 
 public class YeetMan {
 
     private static ArrayList<Task> list = new ArrayList<>();
     private static int count = 0;
     private static final String LINE = "____________________________________________________________";
+    private static final String FILE_PATH = "data/yeetman.txt";
 
     private static void handleToDo(String details) throws YeetManException {
-        if (details.isEmpty()) {
-            throw new YeetManException("The description of a todo cannot be empty Uce!");
+        try {
+            if (details.isEmpty()) {
+                throw new YeetManException("The description of a todo cannot be empty Uce!");
+            }
+            ToDo todo = new ToDo(details);
+            list.add(todo);
+            count++;
+            saveTask(FILE_PATH, list);
+            System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
+                    LINE, todo, count, LINE);
+        } catch (IOException e) {
+            throw new YeetManException(e.getMessage());
         }
-        ToDo todo = new ToDo(details);
-        list.add(todo);
-        count++;
-        System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
-                LINE, todo, count, LINE);
     }
 
     private static void handleDeadline(String details) throws YeetManException {
-        if (details.split("/by").length == 1) {
-            throw new YeetManException("You need a due date for deadlines Uce!");
+        try {
+            if (details.split("/by").length == 1) {
+                throw new YeetManException("You need a due date for deadlines Uce!");
+            }
+            String name = details.split("/by")[0].trim();
+            String dueDate = details.split("/by")[1].trim();
+            Deadline deadline = new Deadline(name, dueDate);
+            list.add(deadline);
+            count++;
+            saveTask(FILE_PATH, list);
+            System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
+                    LINE, deadline, count, LINE);
+        } catch (IOException e) {
+            throw new YeetManException(e.getMessage());
         }
-        String name = details.split("/by")[0].trim();
-        String dueDate = details.split("/by")[1].trim();
-        Deadline deadline = new Deadline(name, dueDate);
-        list.add(deadline);
-        count++;
-        System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
-                LINE, deadline, count, LINE);
     }
 
     private static void handleEvent(String details) throws YeetManException {
-        if (details.split("/from").length == 1 || details.split("/to").length == 1) {
-            throw new YeetManException("Events need to have a start and end date Uce!");
+        try {
+            if (details.split("/from").length == 1 || details.split("/to").length == 1) {
+                throw new YeetManException("Events need to have a start and end date Uce!");
+            }
+            String name = details.split("/from")[0].trim();
+            String startDate = details.split("/from|/to")[1].trim();
+            String endDate = details.split("/to")[1].trim();
+            Event event = new Event(name, startDate, endDate);
+            list.add(event);
+            count++;
+            saveTask(FILE_PATH, list);
+            System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
+                    LINE, event, count, LINE);
+        } catch (IOException e) {
+            throw new YeetManException(e.getMessage());
         }
-        String name = details.split("/from")[0].trim();
-        String startDate = details.split("/from|/to")[1].trim();
-        String endDate = details.split("/to")[1].trim();
-        Event event = new Event(name ,startDate, endDate);
-        list.add(event);
-        count++;
-        System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
-                LINE, event, count, LINE);
     }
 
     private static void handleDelete(String details) throws YeetManException {
@@ -51,11 +70,26 @@ public class YeetMan {
             Task task = list.get(index);
             list.remove(index);
             count--;
+            saveTask(FILE_PATH, list);
             System.out.printf("%s\nI've removed this task:\n\t%s\nNow you have %d tasks in your list.\n%s\n",
                     LINE, task, count, LINE);
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw new YeetManException("Enter the task number you want to delete Uce!");
         }
+    }
+
+    private static void saveTask(String filePath, ArrayList<Task> list) throws IOException {
+        File file = new File(filePath);
+        File parent = file.getParentFile();
+        if (!parent.exists()) {
+            parent.mkdirs();
+        }
+        FileWriter fw  = new FileWriter(filePath);
+        for (Task task : list) {
+            fw.write(task.toString());
+            fw.write(System.lineSeparator());
+        }
+        fw.close();
     }
 
     private static void handleIO() {
