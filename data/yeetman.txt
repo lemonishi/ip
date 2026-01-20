@@ -1,0 +1,3 @@
+[T][ ] 1
+[D][ ] 2 (by: tmr)
+[E][ ] 3 (from: mon to: fri)
