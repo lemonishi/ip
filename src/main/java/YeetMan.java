@@ -1,5 +1,8 @@
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.File;
@@ -10,6 +13,8 @@ public class YeetMan {
     private static int count = 0;
     private static final String LINE = "____________________________________________________________";
     private static final String FILE_PATH = "data/yeetman.txt";
+    private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
+    private static final DateTimeFormatter OUTPUT_FORMATTER = DateTimeFormatter.ofPattern("MMM dd yyyy HHmm");
 
     private static void handleToDo(String details) throws YeetManException {
         try {
@@ -34,13 +39,14 @@ public class YeetMan {
             }
             String name = details.split("/by")[0].trim();
             String dueDate = details.split("/by")[1].trim();
-            Deadline deadline = new Deadline(name, dueDate);
+            LocalDateTime dueDateInput = LocalDateTime.parse(dueDate, INPUT_FORMATTER);
+            Deadline deadline = new Deadline(name, dueDateInput);
             list.add(deadline);
             count++;
             saveTask(FILE_PATH, list);
             System.out.printf("%s\nGot it. I've added this task:\n%s\nNow you have %d tasks in the list\n%s\n",
                     LINE, deadline, count, LINE);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new YeetManException(e.getMessage());
         }
     }
@@ -53,7 +59,9 @@ public class YeetMan {
             String name = details.split("/from")[0].trim();
             String startDate = details.split("/from|/to")[1].trim();
             String endDate = details.split("/to")[1].trim();
-            Event event = new Event(name, startDate, endDate);
+            LocalDateTime startDateInput = LocalDateTime.parse(startDate, INPUT_FORMATTER);
+            LocalDateTime endDateInput = LocalDateTime.parse(endDate, INPUT_FORMATTER);
+            Event event = new Event(name, startDateInput, endDateInput);
             list.add(event);
             count++;
             saveTask(FILE_PATH, list);
