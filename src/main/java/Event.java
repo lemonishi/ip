@@ -13,8 +13,8 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        String startDateOutput = this.startDate.format(this.FORMATTER);
-        String endDateOutput = this.endDate.format(this.FORMATTER);
+        String startDateOutput = this.startDate.format(FORMATTER);
+        String endDateOutput = this.endDate.format(FORMATTER);
         return String.format("[E]%s (from: %s to: %s)", super.toString(), startDateOutput, endDateOutput);
     }
 }
