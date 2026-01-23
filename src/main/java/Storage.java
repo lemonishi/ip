@@ -22,9 +22,9 @@ public class Storage {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
                 if (!line.isEmpty()) {
-                    char taskType = line.charAt(1);
-                    boolean isDone = line.charAt(4) == 'X';
-                    String info = line.substring(6);
+                    char taskType = line.charAt(4);
+                    boolean isDone = line.charAt(7) == 'X';
+                    String info = line.substring(9);
 
                     Task task;
                     switch (taskType) {
@@ -67,7 +67,7 @@ public class Storage {
         }
     }
 
-    public void save(ArrayList<Task> tasks) throws YeetManException {
+    public void save(TaskList tasks) throws YeetManException {
         try {
             File file = new File(this.filePath);
             File parent = file.getParentFile();
@@ -75,10 +75,7 @@ public class Storage {
                 parent.mkdirs();
             }
             FileWriter fw = new FileWriter(this.filePath);
-            for (Task task : tasks) {
-                fw.write(task.toString());
-                fw.write(System.lineSeparator());
-            }
+            fw.write(tasks.toString());
             fw.close();
         } catch (IOException e) {
             throw new YeetManException("Invalid file path, Uce!");
