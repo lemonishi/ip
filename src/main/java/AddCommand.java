@@ -19,6 +19,8 @@ public class AddCommand extends Command {
                 }
                 ToDo todo = new ToDo(info);
                 tasks.addTask(todo);
+                storage.save(tasks);
+                ui.showAddMessage(todo, tasks);
                 break;
             case "deadline": {
                 if (info.split("/by").length == 1) {
@@ -30,6 +32,8 @@ public class AddCommand extends Command {
                     LocalDateTime dueDateInput = LocalDateTime.parse(dueDate, INPUT_FORMATTER);
                     Deadline deadline = new Deadline(name, dueDateInput);
                     tasks.addTask(deadline);
+                    storage.save(tasks);
+                    ui.showAddMessage(deadline, tasks);
                     break;
                 } catch (DateTimeParseException e) {
                     throw new YeetManException("Enter date and time in d/M/yyyy HHmm format, Uce!");
@@ -47,6 +51,8 @@ public class AddCommand extends Command {
                     LocalDateTime endDateInput = LocalDateTime.parse(endDate, INPUT_FORMATTER);
                     Event event = new Event(name, startDateInput, endDateInput);
                     tasks.addTask(event);
+                    storage.save(tasks);
+                    ui.showAddMessage(event, tasks);
                     break;
                 } catch (DateTimeParseException e) {
                     throw new YeetManException("Enter date and time in d/M/yyyy HHmm format, Uce!");

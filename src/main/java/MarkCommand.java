@@ -9,6 +9,7 @@ public class MarkCommand extends Command {
             int taskNumber = Integer.parseInt(info);
             Task marked = tasks.getTask(taskNumber - 1);
             marked.markAsDone();
+            storage.save(tasks);
             ui.showMarkMessage(marked);
         } catch (NumberFormatException e) {
             throw new YeetManException("Enter the task number you want to mark as done, Uce!");

@@ -9,6 +9,7 @@ public class UnmarkCommand extends Command {
             int taskNumber = Integer.parseInt(info);
             Task unmarked = tasks.getTask(taskNumber - 1);
             unmarked.markAsUndone();
+            storage.save(tasks);
             ui.showUnmarkMessage(unmarked);
         } catch (NumberFormatException e) {
             throw new YeetManException("Enter the task number you want to mark as undone, Uce!");
