@@ -1,3 +1,11 @@
+package yeetman.command;
+
+import yeetman.exception.YeetManException;
+import yeetman.storage.Storage;
+import yeetman.task.Task;
+import yeetman.tasklist.TaskList;
+import yeetman.ui.Ui;
+
 public class DeleteCommand extends Command {
     public DeleteCommand(String info) {
         super(info);

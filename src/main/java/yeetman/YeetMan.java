@@ -1,3 +1,12 @@
+package yeetman;
+
+import yeetman.command.Command;
+import yeetman.exception.YeetManException;
+import yeetman.parser.Parser;
+import yeetman.storage.Storage;
+import yeetman.tasklist.TaskList;
+import yeetman.ui.Ui;
+
 public class YeetMan {
 
     private TaskList tasks;

@@ -1,3 +1,8 @@
+package yeetman.parser;
+
+import yeetman.command.*;
+import yeetman.exception.YeetManException;
+
 public class Parser {
     public static Command parse(String fullCommand) throws YeetManException {
         String commandType = fullCommand.split(" ")[0];

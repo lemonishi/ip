@@ -1,3 +1,8 @@
+package yeetman.ui;
+
+import yeetman.task.Task;
+import yeetman.tasklist.TaskList;
+
 import java.util.Scanner;
 
 public class Ui {

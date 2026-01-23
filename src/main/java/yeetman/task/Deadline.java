@@ -1,7 +1,6 @@
-import java.time.LocalDate;
+package yeetman.task;
+
 import java.time.LocalDateTime;
-import java.time.format.DateTimeParseException;
-import java.time.format.DateTimeFormatter;
 
 public class Deadline extends Task {
 

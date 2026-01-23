@@ -1,3 +1,9 @@
+package yeetman.command;
+
+import yeetman.storage.Storage;
+import yeetman.tasklist.TaskList;
+import yeetman.ui.Ui;
+
 public class ExitCommand extends Command {
     public ExitCommand(String info) {
         super(info);

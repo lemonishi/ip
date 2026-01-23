@@ -1,3 +1,7 @@
+package yeetman.tasklist;
+
+import yeetman.task.Task;
+
 import java.util.ArrayList;
 
 public class TaskList {
