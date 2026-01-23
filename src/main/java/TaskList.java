@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class TaskList {
     private ArrayList<Task> tasks;
-    private Ui ui = new Ui();
 
     public TaskList() {
         this.tasks = new ArrayList<>();
@@ -14,13 +13,11 @@ public class TaskList {
 
     public void addTask(Task task) {
         this.tasks.add(task);
-        this.ui.showAddMessage(task,this);
     }
 
     public void deleteTask(int taskNumber) {
         Task removed = this.tasks.get(taskNumber - 1);
         this.tasks.remove(removed);
-        this.ui.showDeleteMessage(removed,this);
     }
 
     public Task getTask(int index) {
