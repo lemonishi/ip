@@ -1,9 +1,11 @@
+package yeetman.task;
+
 import java.time.format.DateTimeFormatter;
 
 public abstract class Task {
     protected String description;
     protected boolean isDone;
-    protected static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("MMM dd yyyy HHmm");
+    public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("MMM dd yyyy HHmm");
 
     public Task(String description) {
         this.description = description;

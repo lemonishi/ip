@@ -1,3 +1,10 @@
+package yeetman.command;
+
+import yeetman.exception.YeetManException;
+import yeetman.storage.Storage;
+import yeetman.tasklist.TaskList;
+import yeetman.ui.Ui;
+
 public abstract class Command {
     protected String info;
 
