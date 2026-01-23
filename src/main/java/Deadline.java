@@ -14,7 +14,7 @@ public class Deadline extends Task {
 
     @Override
     public String toString() {
-        String dueDateOutput = this.dueDate.format(this.FORMATTER);
+        String dueDateOutput = this.dueDate.format(FORMATTER);
         return String.format("[D]%s (by: %s)", super.toString(), dueDateOutput);
     }
 }
