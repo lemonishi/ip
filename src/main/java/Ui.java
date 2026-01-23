@@ -35,6 +35,10 @@ public class Ui {
         System.out.printf("NO YEET! Marked this task as not done yet:\n\t%s\n", task);
     }
 
+    public void showExitMessage() {
+        System.out.println("See you soon, Uce! 4 LETTERS, 1 WORD, UH UH, YEET!");
+    }
+
     public String readCommand() {
        return scanner.nextLine();
     }
