@@ -36,29 +36,29 @@ public class Storage {
 
                     Task task;
                     switch (taskType) {
-                        case 'T':
-                            task = new ToDo(info);
-                            break;
-                        case 'D': {
-                            int endIndex = info.lastIndexOf("(by:");
-                            String description = info.substring(0, endIndex).trim();
-                            String dateString = info.split("by:")[1].trim().replace(")", "");
-                            LocalDateTime dueDate = LocalDateTime.parse(dateString, Task.FORMATTER);
-                            task = new Deadline(description, dueDate);
-                            break;
-                        }
-                        case 'E': {
-                            int endIndex = info.lastIndexOf("(from:");
-                            String description = info.substring(0, endIndex).trim();
-                            String startString = info.split("from:|to:")[1].trim();
-                            String endString = info.split("to:")[1].trim().replace(")", "");
-                            LocalDateTime startDate = LocalDateTime.parse(startString, Task.FORMATTER);
-                            LocalDateTime endDate = LocalDateTime.parse(endString, Task.FORMATTER);
-                            task = new Event(description, startDate, endDate);
-                            break;
-                        }
-                        default:
-                            throw new IllegalArgumentException("Can't load tasks, Uce!");
+                    case 'T':
+                        task = new ToDo(info);
+                        break;
+                    case 'D': {
+                        int endIndex = info.lastIndexOf("(by:");
+                        String description = info.substring(0, endIndex).trim();
+                        String dateString = info.split("by:")[1].trim().replace(")", "");
+                        LocalDateTime dueDate = LocalDateTime.parse(dateString, Task.FORMATTER);
+                        task = new Deadline(description, dueDate);
+                        break;
+                    }
+                    case 'E': {
+                        int endIndex = info.lastIndexOf("(from:");
+                        String description = info.substring(0, endIndex).trim();
+                        String startString = info.split("from:|to:")[1].trim();
+                        String endString = info.split("to:")[1].trim().replace(")", "");
+                        LocalDateTime startDate = LocalDateTime.parse(startString, Task.FORMATTER);
+                        LocalDateTime endDate = LocalDateTime.parse(endString, Task.FORMATTER);
+                        task = new Event(description, startDate, endDate);
+                        break;
+                    }
+                    default:
+                        throw new IllegalArgumentException("Can't load tasks, Uce!");
                     }
 
                     if (isDone) {
