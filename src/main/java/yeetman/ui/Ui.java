@@ -31,7 +31,7 @@ public class Ui {
     /**
      * Displays the task list when given the list command.
      *
-     * @param tasks
+     * @param tasks TaskList instance.
      */
     public void showTaskList(TaskList tasks) {
         String header = "Here are the tasks in your list, Uce! :";
@@ -41,8 +41,8 @@ public class Ui {
     /**
      * Displays the string of the task added after adding a task and the updated task count.
      *
-     * @param added
-     * @param tasks
+     * @param added Task added.
+     * @param tasks TaskList where the task is added to.
      */
     public void showAddMessage(Task added, TaskList tasks) {
         System.out.printf("Added this task:\n\t%s\nYou now have %d tasks, Uce!\n", added, tasks.getTaskCount());
@@ -51,8 +51,8 @@ public class Ui {
     /**
      * Displays the string of the task deleted after deleting a task and the updated task count.
      *
-     * @param removed
-     * @param tasks
+     * @param removed Task removed.
+     * @param tasks TaskList where the task is removed from.
      */
     public void showDeleteMessage(Task removed, TaskList tasks) {
         System.out.printf("This task has been removed:\n\t%s\nYou now have %d tasks left, Uce!\n", removed, tasks.getTaskCount());
@@ -61,7 +61,7 @@ public class Ui {
     /**
      * Displays the string of the task marked after marking the task.
      *
-     * @param task
+     * @param task Task that got marked.
      */
     public void showMarkMessage(Task task) {
         System.out.printf("YEET! Marked this task as done:\n\t%s\n", task);
@@ -70,7 +70,7 @@ public class Ui {
     /**
      * Displays the string of the task unmarked after unmarking the task.
      *
-     * @param task
+     * @param task Task that got unmarked.
      */
     public void showUnmarkMessage(Task task) {
         System.out.printf("NO YEET! Marked this task as not done yet:\n\t%s\n", task);
