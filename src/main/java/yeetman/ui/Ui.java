@@ -22,10 +22,11 @@ public class Ui {
     /**
      * Displays the welcome greeting on initial startup.
      */
-    public void showWelcome() {
+    public String showWelcome() {
         String greeting = String.format("%s\nHello! I'm YeetMan. It's just me Uce!\n"
                 + "What can I do for you?\n%s\n", LINE, LINE);
         System.out.println(greeting);
+        return greeting;
     }
 
     /**
@@ -33,9 +34,10 @@ public class Ui {
      *
      * @param tasks TaskList instance.
      */
-    public void showTaskList(TaskList tasks) {
+    public String showTaskList(TaskList tasks) {
         String header = "Here are the tasks in your list, Uce! :";
         System.out.printf("%s\n%s", header, tasks);
+        return String.format("%s\n%s", header, tasks);
     }
 
     /**
@@ -44,8 +46,9 @@ public class Ui {
      * @param added Task added.
      * @param tasks TaskList where the task is added to.
      */
-    public void showAddMessage(Task added, TaskList tasks) {
+    public String showAddMessage(Task added, TaskList tasks) {
         System.out.printf("Added this task:\n\t%s\nYou now have %d tasks, Uce!\n", added, tasks.getTaskCount());
+        return String.format("Added this task:\n\t%s\nYou now have %d tasks, Uce!\n", added, tasks.getTaskCount());
     }
 
     /**
@@ -54,8 +57,10 @@ public class Ui {
      * @param removed Task removed.
      * @param tasks TaskList where the task is removed from.
      */
-    public void showDeleteMessage(Task removed, TaskList tasks) {
+    public String showDeleteMessage(Task removed, TaskList tasks) {
         System.out.printf("This task has been removed:\n\t%s\nYou now have %d tasks left, Uce!\n",
+                removed, tasks.getTaskCount());
+        return String.format("This task has been removed:\n\t%s\nYou now have %d tasks left, Uce!\n",
                 removed, tasks.getTaskCount());
     }
 
@@ -64,8 +69,9 @@ public class Ui {
      *
      * @param task Task that got marked.
      */
-    public void showMarkMessage(Task task) {
+    public String showMarkMessage(Task task) {
         System.out.printf("YEET! Marked this task as done:\n\t%s\n", task);
+        return String.format("YEET! Marked this task as done:\n\t%s\n", task);
     }
 
     /**
@@ -73,15 +79,17 @@ public class Ui {
      *
      * @param task Task that got unmarked.
      */
-    public void showUnmarkMessage(Task task) {
+    public String showUnmarkMessage(Task task) {
         System.out.printf("NO YEET! Marked this task as not done yet:\n\t%s\n", task);
+        return String.format("NO YEET! Marked this task as not done yet:\n\t%s\n", task);
     }
 
     /**
      * Displays the exit message upon running the exit command.
      */
-    public void showExitMessage() {
+    public String showExitMessage() {
         System.out.println("See you soon, Uce! 4 LETTERS, 1 WORD, UH UH, YEET!");
+        return "See you soon, Uce! 4 LETTERS, 1 WORD, UH UH, YEET!";
     }
 
     /**

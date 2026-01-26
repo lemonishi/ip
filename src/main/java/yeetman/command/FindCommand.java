@@ -14,7 +14,7 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException {
+    public String execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException {
         String output = "";
         String[] lines = tasks.toString().split("\\R");
         for (String line : lines) {
@@ -30,8 +30,11 @@ public class FindCommand extends Command {
         }
         if (output.isEmpty()) {
             System.out.println("No matching tasks found, Uce!");
+            return "No matching tasks found, Uce!";
         } else {
             System.out.printf("Here are the matching tasks in your list, Uce:\n"
+                    + output);
+            return String.format("Here are the matching tasks in your list, Uce:\n"
                     + output);
         }
     }

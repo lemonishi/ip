@@ -31,7 +31,7 @@ public class AddCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException {
+    public String execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException {
         switch (this.taskType) {
         case "todo":
             if (info.isEmpty()) {
@@ -40,8 +40,7 @@ public class AddCommand extends Command {
             ToDo todo = new ToDo(info);
             tasks.addTask(todo);
             storage.save(tasks);
-            ui.showAddMessage(todo, tasks);
-            break;
+            return ui.showAddMessage(todo, tasks);
         case "deadline": {
             if (info.split("/by").length == 1) {
                 throw new YeetManException("Deadline tasks need a deadline, Uce!");
@@ -53,8 +52,7 @@ public class AddCommand extends Command {
                 Deadline deadline = new Deadline(name, dueDateInput);
                 tasks.addTask(deadline);
                 storage.save(tasks);
-                ui.showAddMessage(deadline, tasks);
-                break;
+                return ui.showAddMessage(deadline, tasks);
             } catch (DateTimeParseException e) {
                 throw new YeetManException("Enter date and time in d/M/yyyy HHmm format, Uce!");
             }
@@ -72,8 +70,7 @@ public class AddCommand extends Command {
                 Event event = new Event(name, startDateInput, endDateInput);
                 tasks.addTask(event);
                 storage.save(tasks);
-                ui.showAddMessage(event, tasks);
-                break;
+                return ui.showAddMessage(event, tasks);
             } catch (DateTimeParseException e) {
                 throw new YeetManException("Enter date and time in d/M/yyyy HHmm format, Uce!");
             }
