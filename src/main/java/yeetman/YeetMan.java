@@ -65,4 +65,16 @@ public class YeetMan {
     public static void main(String[] args) {
         new YeetMan("data/yeetman.txt").run();
     }
+
+    /**
+     * Generates a response for the user's chat message.
+     */
+    public String getResponse(String input) {
+        try {
+            Command c = Parser.parse(input);
+            return c.execute(this.tasks, this.ui, this.storage);
+        } catch (YeetManException e) {
+            return e.getMessage();
+        }
+    }
 }

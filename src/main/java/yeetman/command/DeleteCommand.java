@@ -15,13 +15,13 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException {
+    public String execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException {
         try {
             int taskNumber = Integer.parseInt(info);
             Task deleted = tasks.getTask(taskNumber - 1);
             tasks.deleteTask(taskNumber);
             storage.save(tasks);
-            ui.showDeleteMessage(deleted, tasks);
+            return ui.showDeleteMessage(deleted, tasks);
         } catch (NumberFormatException e) {
             throw new YeetManException("Enter the task number you want to delete, Uce!");
         }

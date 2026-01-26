@@ -29,7 +29,7 @@ public abstract class Command {
      * @param storage Storage instance.
      * @throws YeetManException If an error for the individual command is found.
      */
-    public abstract void execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException;
+    public abstract String execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException;
 
     public abstract boolean isExit();
 }
