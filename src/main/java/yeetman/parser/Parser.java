@@ -3,7 +3,17 @@ package yeetman.parser;
 import yeetman.command.*;
 import yeetman.exception.YeetManException;
 
+/**
+ * Encapsulates the parsing logic.
+ */
 public class Parser {
+    /**
+     * Parses the user input and directs the logic to the respective commands.
+     *
+     * @param fullCommand Input given by the user.
+     * @return Command with type of command depending on the input.
+     * @throws YeetManException If there are invalid details for certain commands.
+     */
     public static Command parse(String fullCommand) throws YeetManException {
         String commandType = fullCommand.split(" ")[0];
         switch (commandType) {

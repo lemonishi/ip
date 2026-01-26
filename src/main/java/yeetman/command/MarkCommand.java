@@ -6,6 +6,9 @@ import yeetman.task.Task;
 import yeetman.tasklist.TaskList;
 import yeetman.ui.Ui;
 
+/**
+ * Marks a task.
+ */
 public class MarkCommand extends Command {
     public MarkCommand(String info) {
         super(info);

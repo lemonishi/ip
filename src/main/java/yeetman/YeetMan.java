@@ -7,12 +7,24 @@ import yeetman.storage.Storage;
 import yeetman.tasklist.TaskList;
 import yeetman.ui.Ui;
 
+/**
+ * The YeetMan class implements a chatbot application that
+ * allows users to add, mark, and delete various types of tasks.
+ *
+ * @author Lennon Leung
+ * @version 0.1
+ */
 public class YeetMan {
 
     private TaskList tasks;
     private Ui ui;
     private Storage storage;
 
+    /**
+     * Initializes a new YeetMan instance.
+     *
+     * @param filePath File path of txt file containing saved data.
+     */
     public YeetMan(String filePath) {
         this.ui = new Ui();
         this.storage = new Storage(filePath);
@@ -23,6 +35,10 @@ public class YeetMan {
         }
     }
 
+    /**
+     * Starts the application and handles user input.
+     * Terminates when the exit command is given.
+     */
     public void run() {
         this.ui.showWelcome();
         boolean isExit = false;
@@ -41,6 +57,11 @@ public class YeetMan {
         }
     }
 
+    /**
+     * Parses command-line arguments and runs the main application logic.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         new YeetMan("data/yeetman.txt").run();
     }
