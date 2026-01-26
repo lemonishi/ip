@@ -15,13 +15,27 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Encapsulates the persistence logic of the list of tasks.
+ */
 public class Storage {
     private String filePath;
 
+    /**
+     * Instantiates a new Storage instance.
+     *
+     * @param filePath File path to the .txt file containing the task data.
+     */
     public Storage(String filePath) {
         this.filePath = filePath;
     }
 
+    /**
+     * Loads the tasks from the .txt file indicated in the file path.
+     *
+     * @return ArrayList of Task objects.
+     * @throws YeetManException If file path is non-existent.
+     */
     public ArrayList<Task> load() throws YeetManException {
         try {
             ArrayList<Task> loaded = new ArrayList<>();
@@ -75,6 +89,12 @@ public class Storage {
         }
     }
 
+    /**
+     * Saves all tasks in the TaskList to the .txt file in the indicated file path.
+     *
+     * @param tasks List of tasks.
+     * @throws YeetManException If file path is invalid.
+     */
     public void save(TaskList tasks) throws YeetManException {
         try {
             File file = new File(this.filePath);
