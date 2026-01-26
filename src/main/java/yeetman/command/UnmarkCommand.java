@@ -6,6 +6,9 @@ import yeetman.task.Task;
 import yeetman.tasklist.TaskList;
 import yeetman.ui.Ui;
 
+/**
+ * Unmarks a task.
+ */
 public class UnmarkCommand extends Command {
     public UnmarkCommand(String info) {
         super(info);

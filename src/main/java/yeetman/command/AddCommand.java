@@ -12,6 +12,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Adds a task to the task list.
+ */
 public class AddCommand extends Command {
     private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
     private String taskType;
@@ -21,6 +24,7 @@ public class AddCommand extends Command {
         this.taskType = taskType;
     }
 
+    @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException {
         switch (this.taskType) {
             case "todo":
