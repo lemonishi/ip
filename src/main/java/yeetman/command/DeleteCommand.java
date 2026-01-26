@@ -11,6 +11,7 @@ public class DeleteCommand extends Command {
         super(info);
     }
 
+    @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException {
         try {
             int taskNumber = Integer.parseInt(info);
