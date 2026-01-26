@@ -1,5 +1,9 @@
 package yeetman.command;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 import yeetman.exception.YeetManException;
 import yeetman.storage.Storage;
 import yeetman.task.Deadline;
@@ -8,10 +12,6 @@ import yeetman.task.ToDo;
 import yeetman.tasklist.TaskList;
 import yeetman.ui.Ui;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-
 /**
  * Adds a task to the task list.
  */
@@ -19,6 +19,12 @@ public class AddCommand extends Command {
     private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
     private String taskType;
 
+    /**
+     * Instantiates an AddCommand instance.
+     *
+     * @param info Details of the input.
+     * @param taskType Type of task to add.
+     */
     public AddCommand(String info, String taskType) {
         super(info);
         this.taskType = taskType;
@@ -72,6 +78,8 @@ public class AddCommand extends Command {
                 throw new YeetManException("Enter date and time in d/M/yyyy HHmm format, Uce!");
             }
         }
+        default:
+            throw new YeetManException("Unable to add task, Uce!");
         }
     }
 

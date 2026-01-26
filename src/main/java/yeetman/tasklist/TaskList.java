@@ -1,8 +1,8 @@
 package yeetman.tasklist;
 
-import yeetman.task.Task;
-
 import java.util.ArrayList;
+
+import yeetman.task.Task;
 
 /**
  * Stores all the tasks added and handles essential features such as

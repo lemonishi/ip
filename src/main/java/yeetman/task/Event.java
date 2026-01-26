@@ -2,6 +2,9 @@ package yeetman.task;
 
 import java.time.LocalDateTime;
 
+/**
+ * Encapsulates the logic of event tasks.
+ */
 public class Event extends Task {
     private LocalDateTime startDate;
     private LocalDateTime endDate;

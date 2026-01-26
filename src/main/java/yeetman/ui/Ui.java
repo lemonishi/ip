@@ -1,15 +1,15 @@
 package yeetman.ui;
 
+import java.util.Scanner;
+
 import yeetman.task.Task;
 import yeetman.tasklist.TaskList;
-
-import java.util.Scanner;
 
 /**
  * Handles the application's UI logic.
  */
 public class Ui {
-    private final String LINE = "____________________________________________________________";
+    private static final String LINE = "____________________________________________________________";
     private Scanner scanner = new Scanner(System.in);
 
     /**
@@ -55,7 +55,8 @@ public class Ui {
      * @param tasks TaskList where the task is removed from.
      */
     public void showDeleteMessage(Task removed, TaskList tasks) {
-        System.out.printf("This task has been removed:\n\t%s\nYou now have %d tasks left, Uce!\n", removed, tasks.getTaskCount());
+        System.out.printf("This task has been removed:\n\t%s\nYou now have %d tasks left, Uce!\n",
+                removed, tasks.getTaskCount());
     }
 
     /**
@@ -89,6 +90,6 @@ public class Ui {
      * @return Input entered.
      */
     public String readCommand() {
-       return scanner.nextLine();
+        return scanner.nextLine();
     }
 }

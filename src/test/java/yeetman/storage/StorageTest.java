@@ -1,11 +1,10 @@
 package yeetman.storage;
 
-import org.junit.jupiter.api.Test;
-import yeetman.exception.YeetManException;
-
-import java.io.FileNotFoundException;
-
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
+import yeetman.exception.YeetManException;
 
 public class StorageTest {
 
