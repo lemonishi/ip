@@ -20,11 +20,22 @@ public class Parser {
                 }
                 return new DeleteCommand(fullCommand.split(" ")[1]);
             case "mark":
+                if (fullCommand.split(" ").length == 1) {
+                    throw new YeetManException("Enter the task number you want to mark as done, Uce!");
+                }
                 return new MarkCommand(fullCommand.split(" ")[1]);
             case "unmark":
+                if (fullCommand.split(" ").length == 1) {
+                    throw new YeetManException("Enter the task number you want to mark as not done, Uce!");
+                }
                 return new UnmarkCommand(fullCommand.split(" ")[1]);
             case "list":
                 return new ListCommand("");
+            case "find":
+                if (fullCommand.split(" ").length == 1) {
+                    throw new YeetManException("Tell me whatchu wanna find, Uce!");
+                }
+                return new FindCommand(fullCommand.split(" ", 2)[1]);
             case "bye":
                 return new ExitCommand("");
             default:
