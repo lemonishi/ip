@@ -6,9 +6,9 @@ import java.time.format.DateTimeFormatter;
  * Encapsulates the logic of all types of tasks.
  */
 public abstract class Task {
+    public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("MMM dd yyyy HHmm");
     protected String description;
     protected boolean isDone;
-    public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("MMM dd yyyy HHmm");
 
     /**
      * Instantiates a Task instance

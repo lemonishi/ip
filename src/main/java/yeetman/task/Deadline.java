@@ -2,6 +2,9 @@ package yeetman.task;
 
 import java.time.LocalDateTime;
 
+/**
+ * Encapsulates the logic of deadline tasks.
+ */
 public class Deadline extends Task {
     private LocalDateTime dueDate;
 

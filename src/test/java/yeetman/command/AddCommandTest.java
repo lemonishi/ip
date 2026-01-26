@@ -1,13 +1,14 @@
 package yeetman.command;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import yeetman.exception.YeetManException;
 import yeetman.storage.Storage;
 import yeetman.tasklist.TaskList;
 import yeetman.ui.Ui;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AddCommandTest {
     private TaskList tasks;

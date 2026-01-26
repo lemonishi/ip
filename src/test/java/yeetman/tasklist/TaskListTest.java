@@ -1,19 +1,20 @@
 package yeetman.tasklist;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import yeetman.task.Deadline;
-import yeetman.task.Task;
-import yeetman.task.ToDo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import yeetman.task.Deadline;
+import yeetman.task.Task;
+import yeetman.task.ToDo;
 
 public class TaskListTest {
+    private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
     private TaskList taskList;
-    private final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
 
     @BeforeEach
     public void setUp() {
