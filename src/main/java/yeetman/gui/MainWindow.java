@@ -25,19 +25,19 @@ public class MainWindow extends AnchorPane {
     private Ui ui;
 
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-    private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
+    private Image yeetManImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
 
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
     }
 
-    /** Injects the Duke instance */
+    /** Injects the YeetMan instance */
     public void setYeetMan(YeetMan y) {
         this.yeetMan = y;
         this.ui = new Ui();
         dialogContainer.getChildren().addAll(
-                DialogBox.getDukeDialog(ui.showWelcome(), dukeImage)
+                DialogBox.getYeetManDialog(ui.showWelcome(), yeetManImage)
         );
     }
 
@@ -51,7 +51,7 @@ public class MainWindow extends AnchorPane {
         String response = yeetMan.getResponse(input);
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
-                DialogBox.getDukeDialog(response, dukeImage)
+                DialogBox.getYeetManDialog(response, yeetManImage)
         );
         userInput.clear();
 
