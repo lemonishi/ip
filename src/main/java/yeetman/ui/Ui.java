@@ -23,8 +23,7 @@ public class Ui {
      * Displays the welcome greeting on initial startup.
      */
     public String showWelcome() {
-        String greeting = String.format("%s\nHello! I'm YeetMan. It's just me Uce!\n"
-                + "What can I do for you?\n%s\n", LINE, LINE);
+        String greeting = "Hello! I'm YeetMan. It's just me Uce! What can I do for you?";
         System.out.println(greeting);
         return greeting;
     }
