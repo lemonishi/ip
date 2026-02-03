@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import yeetman.YeetMan;
@@ -28,11 +29,18 @@ public class MainWindow extends AnchorPane {
     private Ui ui;
 
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-    private Image yeetManImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
+    private Image yeetManImage = new Image(this.getClass().getResourceAsStream("/images/yeetman.png"));
 
     @FXML
     public void initialize() {
+        Image image = new Image(getClass().getResourceAsStream("/images/yeet.png"));
+        ImageView iv = new ImageView(image);
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
+        iv.setFitWidth(24);
+        iv.setFitHeight(24);
+        iv.setPreserveRatio(true);
+        sendButton.setGraphic(iv);
+        sendButton.setText("");
     }
 
     /** Injects the YeetMan instance */
