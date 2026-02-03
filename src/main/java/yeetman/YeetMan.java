@@ -1,6 +1,7 @@
 package yeetman;
 
 import yeetman.command.Command;
+import yeetman.command.ExitCommand;
 import yeetman.exception.YeetManException;
 import yeetman.parser.Parser;
 import yeetman.storage.Storage;
@@ -72,6 +73,9 @@ public class YeetMan {
     public String getResponse(String input) {
         try {
             Command c = Parser.parse(input);
+            if (c.isExit()) {
+                assert c instanceof ExitCommand : "Command is an instance of ExitCommand when exiting.";
+            }
             return c.execute(this.tasks, this.ui, this.storage);
         } catch (YeetManException e) {
             return e.getMessage();

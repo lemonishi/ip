@@ -23,6 +23,7 @@ public class Parser {
      */
     public static Command parse(String fullCommand) throws YeetManException {
         String commandType = fullCommand.split(" ")[0];
+        assert !commandType.contains(" ") : "Command type contains no spaces.";
         switch (commandType) {
         case "todo":
         case "deadline":
