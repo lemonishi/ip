@@ -24,7 +24,7 @@ public class FindCommand extends Command {
                 end = line.length();
             }
             String name = line.substring(start + 2, end).trim();
-            if (name.contains(this.info)) {
+            if (name.contains(arguments)) {
                 output += line + "\n";
             }
         }

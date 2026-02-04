@@ -8,8 +8,8 @@ import yeetman.ui.Ui;
  * Displays the list of tasks in the task list currently.
  */
 public class ListCommand extends Command {
-    public ListCommand(String info) {
-        super(info);
+    public ListCommand(String arguments) {
+        super(arguments);
     }
 
     @Override
