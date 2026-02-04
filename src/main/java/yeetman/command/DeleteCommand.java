@@ -10,14 +10,14 @@ import yeetman.ui.Ui;
  * Deletes a task from the task list.
  */
 public class DeleteCommand extends Command {
-    public DeleteCommand(String info) {
-        super(info);
+    public DeleteCommand(String arguments) {
+        super(arguments);
     }
 
     @Override
     public String execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException {
         try {
-            int taskNumber = Integer.parseInt(info);
+            int taskNumber = Integer.parseInt(arguments);
             Task deleted = tasks.getTask(taskNumber - 1);
             tasks.deleteTask(taskNumber);
             storage.save(tasks);

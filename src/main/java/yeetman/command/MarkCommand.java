@@ -10,14 +10,14 @@ import yeetman.ui.Ui;
  * Marks a task.
  */
 public class MarkCommand extends Command {
-    public MarkCommand(String info) {
-        super(info);
+    public MarkCommand(String arguments) {
+        super(arguments);
     }
 
     @Override
     public String execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException {
         try {
-            int taskNumber = Integer.parseInt(info);
+            int taskNumber = Integer.parseInt(arguments);
             Task marked = tasks.getTask(taskNumber - 1);
             marked.markAsDone();
             storage.save(tasks);

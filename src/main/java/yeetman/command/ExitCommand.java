@@ -8,8 +8,8 @@ import yeetman.ui.Ui;
  * Terminates the application.
  */
 public class ExitCommand extends Command {
-    public ExitCommand(String info) {
-        super(info);
+    public ExitCommand(String arguments) {
+        super(arguments);
     }
 
     @Override
