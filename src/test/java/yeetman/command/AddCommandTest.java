@@ -24,25 +24,25 @@ public class AddCommandTest {
 
     @Test
     public void givenDeadlineWithEmptyDate_whenExecute_throwException() {
-        Command c = new AddCommand("deadline with no due date", "deadline");
+        Command c = new AddDeadlineCommand("deadline with no due date");
         assertThrows(YeetManException.class, () -> c.execute(tasks, ui, storage));
     }
 
     @Test
     public void givenEventWithEmptyDates_whenExecute_throwException() {
-        Command c = new AddCommand("event with no start and end", "event");
+        Command c = new AddEventCommand("event with no start and end");
         assertThrows(YeetManException.class, () -> c.execute(tasks, ui, storage));
     }
 
     @Test
     public void givenEventWithEmptyStartDate_whenExecute_throwException() {
-        Command c = new AddCommand("event with no start /to 18/1/2023 1800", "event");
+        Command c = new AddEventCommand("event with no start /to 18/1/2023 1800");
         assertThrows(YeetManException.class, () -> c.execute(tasks, ui, storage));
     }
 
     @Test
     public void givenEventWithEmptyEndDate_whenExecute_throwException() {
-        Command c = new AddCommand("event with no end /from 18/1/2023 1800", "event");
+        Command c = new AddEventCommand("event with no end /from 18/1/2023 1800");
         assertThrows(YeetManException.class, () -> c.execute(tasks, ui, storage));
     }
 }
