@@ -9,15 +9,15 @@ import yeetman.ui.Ui;
  * Encapsulates the logic for all types of commands.
  */
 public abstract class Command {
-    protected String info;
+    protected String arguments;
 
     /**
      * Instantiates a type of command, used by its subclasses.
      *
-     * @param info Details of the input given without the type of command.
+     * @param arguments Details of the input given without the type of command.
      */
-    public Command(String info) {
-        this.info = info;
+    public Command(String arguments) {
+        this.arguments = arguments;
     }
 
     /**

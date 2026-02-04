@@ -10,14 +10,14 @@ import yeetman.ui.Ui;
  * Unmarks a task.
  */
 public class UnmarkCommand extends Command {
-    public UnmarkCommand(String info) {
-        super(info);
+    public UnmarkCommand(String arguments) {
+        super(arguments);
     }
 
     @Override
     public String execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException {
         try {
-            int taskNumber = Integer.parseInt(info);
+            int taskNumber = Integer.parseInt(arguments);
             Task unmarked = tasks.getTask(taskNumber - 1);
             unmarked.markAsUndone();
             storage.save(tasks);
