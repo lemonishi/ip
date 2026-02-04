@@ -9,7 +9,16 @@ import yeetman.ui.Ui;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Encapsulates logic for adding Event tasks.
+ */
 public class AddEventCommand extends AddCommand {
+
+    /**
+     * Instantiates an AddEventCommand instance.
+     *
+     * @param arguments Arguments from the user input
+     */
     public AddEventCommand(String arguments) {
         super(arguments);
     }

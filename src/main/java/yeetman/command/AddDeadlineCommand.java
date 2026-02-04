@@ -9,8 +9,16 @@ import yeetman.ui.Ui;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Encapsulates logic for adding Deadline tasks.
+ */
 public class AddDeadlineCommand extends AddCommand {
 
+    /**
+     * Instantiates an AddDeadlineCommand instance.
+     *
+     * @param arguments Arguments from the user input.
+     */
     public AddDeadlineCommand(String arguments) {
         super(arguments);
     }

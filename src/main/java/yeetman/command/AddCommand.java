@@ -18,11 +18,6 @@ import yeetman.ui.Ui;
 public abstract class AddCommand extends Command {
     protected static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
 
-    /**
-     * Instantiates an AddCommand instance.
-     *
-     * @param arguments Arguments of the input.
-     */
     public AddCommand(String arguments) {
         super(arguments);
     }

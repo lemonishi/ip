@@ -6,8 +6,16 @@ import yeetman.task.ToDo;
 import yeetman.tasklist.TaskList;
 import yeetman.ui.Ui;
 
+/**
+ * Encapsulates logic for adding ToDo tasks.
+ */
 public class AddToDoCommand extends AddCommand {
 
+    /**
+     * Instantiates an AddToDoCommand instance.
+     *
+     * @param arguments Arguments from user input.
+     */
     public AddToDoCommand(String arguments) {
         super(arguments);
     }
