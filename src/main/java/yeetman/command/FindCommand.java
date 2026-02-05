@@ -1,11 +1,11 @@
 package yeetman.command;
 
+import java.util.stream.Collectors;
+
 import yeetman.exception.YeetManException;
 import yeetman.storage.Storage;
 import yeetman.tasklist.TaskList;
 import yeetman.ui.Ui;
-
-import java.util.stream.Collectors;
 
 /**
  * Finds and lists all tasks containing the input string in its description.
