@@ -1,32 +1,28 @@
+Hello! I'm YeetMan. It's just me Uce! What can I do for you?
 ____________________________________________________________
-Hello! I'm YeetMan. It's just me Uce!
-What can I do for you?
-____________________________________________________________
-
-____________________________________________________________
-Got it. I've added this task:
-[T][ ] borrow book
-Now you have 1 tasks in the list
+Added this task:
+	[T][ ] borrow book
+You now have 1 tasks, Uce!
 ____________________________________________________________
 ____________________________________________________________
 Here are the tasks in your list, Uce! :
 1. [T][ ] borrow book
 ____________________________________________________________
 ____________________________________________________________
-Got it. I've added this task:
-[D][ ] return book (by: Sunday)
-Now you have 2 tasks in the list
+Added this task:
+	[D][ ] return book (by: Jan 01 2001 1800)
+You now have 2 tasks, Uce!
 ____________________________________________________________
 ____________________________________________________________
-Got it. I've added this task:
-[T][ ] homework
-Now you have 3 tasks in the list
+Added this task:
+	[T][ ] homework
+You now have 3 tasks, Uce!
 ____________________________________________________________
 ____________________________________________________________
-Got it. I've added this task:
-[E][ ] project meeting (from: Tues 2pm to: 4pm)
-Now you have 4 tasks in the list
+Added this task:
+	[E][ ] project meeting (from: Jan 01 2001 1234 to: Jan 02 2001 1000)
+You now have 4 tasks, Uce!
 ____________________________________________________________
 ____________________________________________________________
-BYE! 4 LETTERS, 1 WORD. UH UH, YEET!
+See you soon, Uce! 4 LETTERS, 1 WORD, UH UH, YEET!
 ____________________________________________________________

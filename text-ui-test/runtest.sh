@@ -6,21 +6,25 @@ then
     mkdir ../bin
 fi
 
+# for development testing
+rm -f ../data/yeetman_test.txt
+touch ../data/yeetman_test.txt
+
 # delete output from previous run
 if [ -e "./ACTUAL.TXT" ]
 then
-    rm ACTUAL.TXT
+    rm -f ACTUAL.TXT
 fi
 
 # compile the code into the bin folder, terminates if error occurred
-if ! javac -Xlint:none -d ../bin $(find ../src/main/java -name "*.java")
+if ! javac -cp ../src/main/java -Xlint:none -d ../bin ../src/main/java/yeetman/*.java
 then
     echo "********** BUILD FAILURE **********"
     exit 1
 fi
 
 # run the program, feed commands from input.txt file and redirect the output to the ACTUAL.TXT
-java -classpath ../bin Duke < input.txt > ACTUAL.TXT
+java -classpath ../bin yeetman.YeetMan ../data/yeetman_test.txt < input.txt > ACTUAL.TXT
 
 # convert to UNIX format
 cp EXPECTED.TXT EXPECTED-UNIX.TXT

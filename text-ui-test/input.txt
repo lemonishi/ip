@@ -1,6 +1,6 @@
 todo borrow book
 list
-deadline return book /by Sunday
+deadline return book /by 1/1/2001 1800
 todo homework
-event project meeting /from Tues 2pm /to 4pm
+event project meeting /from 1/1/2001 1234 /to 2/1/2001 1000
 bye
