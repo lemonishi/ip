@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,6 +25,8 @@ public class MainWindow extends AnchorPane {
     private TextField userInput;
     @FXML
     private Button sendButton;
+    @FXML
+    private TabPane tabPane;
 
     private YeetMan yeetMan;
     private Ui ui;
@@ -69,7 +72,11 @@ public class MainWindow extends AnchorPane {
         );
         userInput.clear();
 
-        if (input.trim().equalsIgnoreCase("bye")) {
+        if (input.trim().equalsIgnoreCase("help")) {
+            tabPane.getSelectionModel().select(1);
+        } else if (input.trim().equalsIgnoreCase("back")) {
+            tabPane.getSelectionModel().select(0);
+        } else if (input.trim().equalsIgnoreCase("bye")) {
             Platform.exit();
         }
     }
