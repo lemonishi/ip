@@ -1,6 +1,6 @@
 1. [D][ ] test2 (by: Mar 06 2343 2343)
 2. [E][X] test 3 (from: Feb 11 2020 2000 to: Feb 12 2033 2100)
-3. [T][X]   yeet
-4. [T][ ]  lol
-5. [T][ ]  smth diff
+3. [T][X]    yeet
+4. [T][ ]   lol
+5. [T][X]   smth diff
 6. [E][X] sumevent (from: Jan 01 2001 1111 to: Feb 01 2002 1231)
