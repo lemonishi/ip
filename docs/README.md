@@ -1,30 +1,62 @@
-# Duke User Guide
+# YeetMan User Guide
 
-// Update the title above to match the actual product name
+![ui](Ui.png)
 
-// Product screenshot goes here
+YeetMan is a lightweight application for managing tasks, optimized for use via a Command Line Interface (CLI)
+while still having the benefits of a graphical user interface (GUI).
 
-// Product intro goes here
+## Table of contents
+- [Setup](#Setup)
+- [Features](#Features)
 
-## Adding deadlines
+## Setup
+1. Ensure you have Java `17` or above installed in your Computer.
+Mac users: Ensure you have the precise JDK version prescribed here.
 
-// Describe the action and its outcome.
+2. Download the latest `.jar` file from here.
 
-// Give examples of usage
+3. Copy the file to the folder you want to use as the <i>home folder</i> for your YeetMan.
 
-Example: `keyword (optional arguments)`
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar yeetman.jar` command to run the application.
+A GUI similar to the above should appear in a few seconds. Note how the app contains some sample data.
 
-// A description of the expected outcome goes here
+## Features
+### Viewing help: `help`
+Navigates to the help page within the GUI.<br />
+Usage: `help`
 
-```
-expected output
-```
+### Adding ToDo tasks: `todo`
+Adds ToDo tasks.<br />
+Usage: `todo <TASK_NAME>`
 
-## Feature ABC
+### Adding Deadline tasks: `deadline`
+Add deadline tasks with a date format of d/M/yyyy HHmm.<br />
+Usage: `deadline <TASK_NAME> /by <DUE_DATE>`
 
-// Feature details
+### Adding Event tasks: `event`
+Add Event tasks with a date format of d/M/yyyy HHmm for both start and end dates.<br />
+Usage: `event <TASK_NAME> /from <START_DATE> /to <END_DATE>`
 
+### Listing all tasks: `list`
+Shows a list of all current tasks in the task list.<br />
+Usage: `list`
 
-## Feature XYZ
+### Locating tasks by name: `find`
+Finds tasks with names that contain any of the given keywords.<br />
+Usage: `find <KEYWORD>`
 
-// Feature details
+### Marking a task as done: `mark`
+Marks the specified task as done.<br />
+Usage: `mark <TASK_INDEX>`
+
+### Unmarking a task as done: `unmark`
+Unmarks the specified task as done.<br />
+Usage: `unmark <TASK_INDEX>`
+
+### Deleting a task: `delete`
+Deletes the specified task from the task list.<br />
+Usage: `delete <TASK_INDEX>`
+
+### Exiting the application: `bye`
+Exits and terminates the application.<br />
+Usage: `bye`
