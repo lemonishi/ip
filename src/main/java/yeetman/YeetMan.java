@@ -64,7 +64,8 @@ public class YeetMan {
      * @param args
      */
     public static void main(String[] args) {
-        new YeetMan("data/yeetman.txt").run();
+        String filePath = args.length > 0 ? args[0] : "data/yeetman.txt"; // for text-ui-testing
+        new YeetMan(filePath).run();
     }
 
     /**
