@@ -1,4 +1,0 @@
-1. [T][ ] finding john
-2. [T][X] study
-3. [E][ ] project meeting (from: Jan 01 2020 1800 to: Jan 01 2020 2000)
-4. [D][ ] homework (by: Feb 22 2022 2359)
