@@ -32,6 +32,11 @@ public abstract class Task {
         this.isDone = false;
     }
 
+    /**
+     * Formats the toString of tasks to a readable save format.
+     *
+     * @return Formatted string of a task.
+     */
     public abstract String toSaveString();
 
     @Override
