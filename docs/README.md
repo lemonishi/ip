@@ -13,12 +13,12 @@ while still having the benefits of a graphical user interface (GUI).
 1. Ensure you have Java `17` or above installed in your Computer.
 Mac users: Ensure you have the precise JDK version prescribed here.
 
-2. Download the latest `.jar` file from here.
+2. Download the latest `.jar` file from [here](https://github.com/lemonishi/ip/releases).
 
 3. Copy the file to the folder you want to use as the <i>home folder</i> for your YeetMan.
 
 4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar yeetman.jar` command to run the application.
-A GUI similar to the above should appear in a few seconds. Note how the app contains some sample data.
+A GUI similar to the above should appear in a few seconds.
 
 ## Features
 ### Viewing help: `help`
