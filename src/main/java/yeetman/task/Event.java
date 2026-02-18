@@ -24,7 +24,11 @@ public class Event extends Task {
 
     @Override
     public String toSaveString() {
-        return String.format("E | %d | %s | %s | %s", isDone ? 1 : 0, description, startDate.format(FORMATTER), endDate.format(FORMATTER));
+        return String.format("E | %d | %s | %s | %s",
+                isDone ? 1 : 0,
+                description,
+                startDate.format(FORMATTER),
+                endDate.format(FORMATTER));
     }
 
     @Override
