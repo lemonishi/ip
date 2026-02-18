@@ -55,6 +55,10 @@ public class TaskList {
         return this.tasks.size();
     }
 
+    public ArrayList<Task> getTasks() {
+        return this.tasks;
+    }
+
     @Override
     public String toString() {
         String outputList = "";

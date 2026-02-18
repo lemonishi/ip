@@ -44,33 +44,25 @@ public class Storage {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
                 if (!line.isEmpty()) {
-                    char taskType = line.charAt(4);
-                    boolean isDone = line.charAt(7) == 'X';
-                    String info = line.substring(9);
+                    String[] parts = line.split(" \\| ");
+                    char taskType = parts[0].charAt(0);
+                    boolean isDone = parts[1].equals("1");
+                    String description = parts[2];
 
                     Task task;
                     switch (taskType) {
                     case 'T':
-                        task = new ToDo(info);
+                        task = new ToDo(description);
                         break;
-                    case 'D': {
-                        int endIndex = info.lastIndexOf("(by:");
-                        String description = info.substring(0, endIndex).trim();
-                        String dateString = info.split("by:")[1].trim().replace(")", "");
-                        LocalDateTime dueDate = LocalDateTime.parse(dateString, Task.FORMATTER);
+                    case 'D':
+                        LocalDateTime dueDate = LocalDateTime.parse(parts[3], Task.FORMATTER);
                         task = new Deadline(description, dueDate);
                         break;
-                    }
-                    case 'E': {
-                        int endIndex = info.lastIndexOf("(from:");
-                        String description = info.substring(0, endIndex).trim();
-                        String startString = info.split("from:|to:")[1].trim();
-                        String endString = info.split("to:")[1].trim().replace(")", "");
-                        LocalDateTime startDate = LocalDateTime.parse(startString, Task.FORMATTER);
-                        LocalDateTime endDate = LocalDateTime.parse(endString, Task.FORMATTER);
+                    case 'E':
+                        LocalDateTime startDate = LocalDateTime.parse(parts[3], Task.FORMATTER);
+                        LocalDateTime endDate = LocalDateTime.parse(parts[4], Task.FORMATTER);
                         task = new Event(description, startDate, endDate);
                         break;
-                    }
                     default:
                         throw new IllegalArgumentException("Can't load tasks, Uce!");
                     }
@@ -103,7 +95,9 @@ public class Storage {
                 parent.mkdirs();
             }
             FileWriter fw = new FileWriter(this.filePath);
-            fw.write(tasks.toString());
+            for (Task task : tasks.getTasks()) {
+                fw.write(task.toSaveString() + "\n");
+            }
             fw.close();
         } catch (IOException e) {
             throw new YeetManException("Invalid file path, Uce!");

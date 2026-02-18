@@ -20,6 +20,11 @@ public class Deadline extends Task {
     }
 
     @Override
+    public String toSaveString() {
+        return String.format("D | %d | %s | %s", isDone ? 1 : 0, description, dueDate.format(FORMATTER));
+    }
+
+    @Override
     public String toString() {
         String dueDateOutput = this.dueDate.format(FORMATTER);
         return String.format("[D]%s (by: %s)", super.toString(), dueDateOutput);
