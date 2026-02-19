@@ -62,7 +62,7 @@ public class Parser {
         boolean hasSpace = firstSpaceIndex != -1;
         boolean hasArg = firstSpaceIndex + 1 < input.length() && hasSpace;
         String command = hasSpace ? input.substring(0, firstSpaceIndex) : input;
-        String arguments = hasArg ? input.substring(firstSpaceIndex + 1) : "";
+        String arguments = hasArg ? input.substring(firstSpaceIndex + 1).trim() : "";
         return new String[]{command, arguments};
     }
 }

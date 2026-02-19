@@ -79,7 +79,7 @@ public class YeetMan {
             }
             return c.execute(this.tasks, this.ui, this.storage);
         } catch (YeetManException e) {
-            if (input.equals("help") || input.equals("back")) {
+            if (input.trim().equals("help") || input.trim().equals("back")) {
                 return "Done!";
             }
             return e.getMessage();
