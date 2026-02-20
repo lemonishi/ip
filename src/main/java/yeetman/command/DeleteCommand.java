@@ -18,7 +18,7 @@ public class DeleteCommand extends Command {
     public String execute(TaskList tasks, Ui ui, Storage storage) throws YeetManException {
         try {
             int taskNumber = Integer.parseInt(arguments);
-            if (taskNumber > tasks.getTaskCount() || taskNumber < 0) {
+            if (taskNumber > tasks.getTaskCount() || taskNumber <= 0) {
                 throw new YeetManException(String.format("Task number %d does not exist, Uce!", taskNumber));
             }
             Task deleted = tasks.getTask(taskNumber - 1);
